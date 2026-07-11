@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the companion manuscript and this software release."
+title: "LLM-for-SR: reproducible evaluation of LLM screening decisions in systematic reviews"
+type: software
+version: 1.0.0
+date-released: 2026-07-11
+repository-code: "https://github.com/lborovoi/LLM-for-SR"
+license: MIT
+authors:
+  - given-names: Leah
+    family-names: Borovoi
+  - given-names: Kfir
+    family-names: Bar
+  - given-names: Sophie
+    family-names: Lazar
+  - given-names: Tomer
+    family-names: Bernstine
+  - given-names: Jumanah
+    family-names: Essa-Hadad
+  - given-names: Paul
+    family-names: Kuodi
+  - given-names: Nathalie
+    family-names: Rhone
+  - given-names: Michael
+    family-names: Edelstein
+keywords:
+  - systematic review
+  - large language model
+  - screening
+  - reproducibility
+  - digital medicine
+

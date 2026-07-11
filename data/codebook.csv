@@ -1,0 +1,26 @@
+field,review,role,definition
+record_id,SR1-SR3,identifier,Random opaque row identifier with no bibliographic crosswalk
+human_title,SR1,human decision,Human include decision at title screening
+human_title_abstract,SR1 SR3,human decision,Human include decision at title/abstract screening
+human_final,SR1-SR3,human decision,Locked final human include decision
+chatgpt_title,SR1,model decision,ChatGPT include decision at title screening
+gemini_title,SR1,model decision,Gemini include decision at title screening
+chatgpt_title_abstract,SR1-SR3,model decision,ChatGPT include decision at title/abstract screening; SR2 has no stage-matched human reference
+gemini_title_abstract,SR1-SR3,model decision,Gemini include decision at title/abstract screening; SR2 has no stage-matched human reference
+chatgpt_full_text_tf,SR1 SR3,model decision,ChatGPT full-text decision used in the traditional-flow endpoint
+gemini_full_text_tf,SR1 SR3,model decision,Gemini full-text decision used in the traditional-flow endpoint
+chatgpt_full_text_ntf,SR2,model decision,ChatGPT full-text decision used in the non-traditional-flow endpoint
+gemini_full_text_ntf,SR2,model decision,Gemini full-text decision used in the non-traditional-flow endpoint
+chatgpt_one_shot,SR1,model decision,ChatGPT all-record full-text decision used alone for the exploratory endpoint and after prior model stages for nTF
+gemini_one_shot,SR1,model decision,Gemini all-record full-text decision used alone for the exploratory endpoint and after prior model stages for nTF
+chatgpt_title_missing,SR1,missing flag,ChatGPT title output was missing or failed
+gemini_title_missing,SR1,missing flag,Gemini title output was missing or failed
+chatgpt_title_abstract_missing,SR1 SR3,missing flag,ChatGPT title/abstract output was missing or failed
+gemini_title_abstract_missing,SR1 SR3,missing flag,Gemini title/abstract output was missing or failed
+chatgpt_full_text_tf_missing,SR1 SR3,missing flag,ChatGPT traditional-flow full-text output was missing or failed
+gemini_full_text_tf_missing,SR1 SR3,missing flag,Gemini traditional-flow full-text output was missing or failed
+chatgpt_full_text_ntf_missing,SR2,missing flag,ChatGPT non-traditional-flow full-text output was missing or failed
+gemini_full_text_ntf_missing,SR2,missing flag,Gemini non-traditional-flow full-text output was missing or failed
+chatgpt_one_shot_missing,SR1,missing flag,ChatGPT all-record full-text output was missing or failed
+gemini_one_shot_missing,SR1,missing flag,Gemini all-record full-text output was missing or failed
+

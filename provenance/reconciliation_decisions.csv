@@ -1,0 +1,11 @@
+review_id,issue_class,public_resolution,locked_check
+SR1,Duplicate report,One duplicate report was consolidated before locking,1556 unique records
+SR1,Final reference standard,The final human reference was reconciled to the 28-study published review standard,28 final includes
+SR1,Stage semantics,Primary title and title/abstract decisions were selected from the locked run columns rather than older alternative runs,496 title and 86 title/abstract human includes
+SR2,Duplicate and unlabeled rows,Ten exact duplicate-order rows and one unlabeled row were excluded before locking,3720 records and 74 final includes
+SR3,Duplicate citations,Three duplicate DOI pairs were collapsed to canonical records,746 unique records
+SR3,Title-language variants,Nine title-language variants were matched during reconciliation,101 title/abstract human includes
+SR3,No prescreen counterpart,Three canonical records without a prescreen counterpart were retained as human excludes,No final includes outside the human title/abstract gate
+ALL,Missing model output,A missing or failed output is flagged explicitly and coded EXCLUDE in the primary analysis,Stage-relevant counts are conditional on model progression
+ALL,Public release,Citation identifiers text fields reasoning paths and row order were removed; random opaque IDs were assigned,Metrics reproduce exactly without bibliographic disclosure
+

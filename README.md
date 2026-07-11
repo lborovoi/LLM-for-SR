@@ -120,4 +120,3 @@ matrices and derived result tables are released under
 [CC BY 4.0](LICENSE-DATA.md). No rights to third-party publication text or
 bibliographic database content are conveyed.
 
-

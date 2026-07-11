@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# Notebook, editor, and operating-system files
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+~$*
+
+# Private or licensed source material
+data/raw/
+private/
+*.pdf
+*.docx
+*.xlsx
+*.xls
+*.ris
+*.nbib
+*.inspect.ndjson
+
+# Reproduction output created locally
+results/reproduced/
+

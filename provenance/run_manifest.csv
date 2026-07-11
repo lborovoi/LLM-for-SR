@@ -1,0 +1,8 @@
+review_id,workflow,model_family,historical_identifier,run_mapping_status,generation_settings_status,note
+SR1,TF and nTF,ChatGPT,gpt-4o; gpt-4.1-mini,Incomplete at individual-run level,Temperature seed and other generation settings were not explicitly archived,Identifiers are reported as observed in historical project files and must not be interpreted as a complete run ledger
+SR1,TF and nTF,Gemini,google/gemini-3-flash-preview,Incomplete at individual-run level,Temperature seed and other generation settings were not explicitly archived,Preview identifier is historical and mutable
+SR2,TF and nTF,ChatGPT,gpt-4o; gpt-4.1-mini,Incomplete at individual-run level,Temperature seed and other generation settings were not explicitly archived,Primary repository reproduction uses frozen decisions and does not call an API
+SR2,TF and nTF,Gemini,google/gemini-3-flash-preview,Incomplete at individual-run level,Temperature seed and other generation settings were not explicitly archived,Primary repository reproduction uses frozen decisions and does not call an API
+SR3,TF and nTF,ChatGPT,gpt-4o; gpt-4.1-mini,Incomplete at individual-run level,Temperature seed and other generation settings were not explicitly archived,Primary repository reproduction uses frozen decisions and does not call an API
+SR3,TF and nTF,Gemini,google/gemini-3-flash-preview,Incomplete at individual-run level,Temperature seed and other generation settings were not explicitly archived,Primary repository reproduction uses frozen decisions and does not call an API
+
