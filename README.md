@@ -73,10 +73,21 @@ data/codebook.csv     definitions for every public data field
 src/                  metric, agreement, heterogeneity, validation, and CLI code
 results/published/    locked publication result tables
 prompts/              recovered historical system prompts and review criteria
+supplementary-materials/ public manuscript appendix and provenance note
 provenance/           aggregate reconciliation record, run manifest, checksums
 docs/                 endpoint contract and interpretation notes
 tests/                denominator, confusion-matrix, missingness, and snapshot tests
 ```
+
+## Supplementary materials
+
+[Appendix S1: Prompts and Model Settings](supplementary-materials/appendix-s1-prompts-and-model-settings.pdf)
+documents the implemented prompts, review-specific criteria, output schemas,
+model/API settings, and PDF batch rules. The PDF was extracted from the latest
+editorial manuscript version and prepared as a public, metadata-clean
+supplementary file. See
+[`supplementary-materials/README.md`](supplementary-materials/README.md) for
+version and editorial details.
 
 ## Data minimization
 
@@ -119,4 +130,3 @@ Code is released under the [MIT License](LICENSE). The pseudonymized decision
 matrices and derived result tables are released under
 [CC BY 4.0](LICENSE-DATA.md). No rights to third-party publication text or
 bibliographic database content are conveyed.
-

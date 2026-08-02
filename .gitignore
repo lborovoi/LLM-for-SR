@@ -36,6 +36,8 @@ private/
 *.nbib
 *.inspect.ndjson
 
+# Reviewed public supplementary material
+!supplementary-materials/appendix-s1-prompts-and-model-settings.pdf
+
 # Reproduction output created locally
 results/reproduced/
-

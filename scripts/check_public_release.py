@@ -14,6 +14,9 @@ FORBIDDEN_SUFFIXES = {
     ".doc", ".docx", ".pdf", ".xls", ".xlsx", ".ris", ".nbib", ".ipynb",
     ".pyc", ".pkl", ".pickle",
 }
+ALLOWED_BINARY_FILES = {
+    "supplementary-materials/appendix-s1-prompts-and-model-settings.pdf",
+}
 TEXT_SUFFIXES = {
     "", ".cff", ".csv", ".gitignore", ".gitattributes", ".md", ".py",
     ".sha256", ".toml", ".txt", ".yaml", ".yml",
@@ -58,10 +61,16 @@ def check_files() -> list[str]:
     errors: list[str] = []
     for path in relative_files():
         relative = path.relative_to(ROOT)
-        if path.suffix.lower() in FORBIDDEN_SUFFIXES:
+        relative_posix = relative.as_posix()
+        if (
+            path.suffix.lower() in FORBIDDEN_SUFFIXES
+            and relative_posix not in ALLOWED_BINARY_FILES
+        ):
             errors.append(f"forbidden file type: {relative}")
         if path.stat().st_size > 5_000_000:
             errors.append(f"unexpectedly large file: {relative}")
+        if relative_posix in ALLOWED_BINARY_FILES:
+            continue
         if path.suffix.lower() not in TEXT_SUFFIXES and path.name not in {"LICENSE"}:
             errors.append(f"unreviewed file type: {relative}")
             continue
