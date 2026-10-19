@@ -1,0 +1,8 @@
+review,model,panel,stage,input_records,evaluation_records,model_inclusions,data_support,source
+SR1,ChatGPT,TF,initial screening,1556,1556,608,reported_aggregate,"Table 1, SR1 initial screen"
+SR1,ChatGPT,TF,abstract,496,496,188,reported_aggregate,"Table 1, SR1 abstract"
+SR1,ChatGPT,TF,full text,86,86,68,reported_aggregate,"Table 1, SR1 full text"
+SR1,ChatGPT,nTF,initial screening,1556,,608,reported_aggregate,Figure 2 historical cascade
+SR1,ChatGPT,nTF,abstract,608,,381,reported_aggregate,Figure 2 historical cascade
+SR1,ChatGPT,nTF,full text,381,1556,196,reported_aggregate,Table 1 and Figure 2 historical cascade
+SR1,ChatGPT,one-shot,full text,1481,1556,362,record_level_result,SR1 one-shot decisions; PDF supply count from Figure 2

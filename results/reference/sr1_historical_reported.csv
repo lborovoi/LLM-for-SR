@@ -1,0 +1,9 @@
+model,workflow,human_reference,records_evaluated,TP,FP,FN,TN,data_support,source
+ChatGPT,initial screening (TF),Human – title gate (496),1556,388,220,108,840,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+Gemini,title (TF),Human – title gate (496),1556,115,7,381,1053,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+ChatGPT,abstract (TF),Human – title/abstract gate (86),496,85,103,1,307,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+Gemini,abstract (TF),Human – title/abstract gate (86),496,44,53,42,357,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+ChatGPT,TF full text,Human – final inclusion (28),86,28,40,0,18,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+Gemini,TF full text,Human – final inclusion (28),86,22,24,6,34,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+ChatGPT,nTF final,Human – final inclusion (28),1556,28,168,0,1360,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"
+Gemini,human-gated corpus estimate,Human – final inclusion (28),1556,22,24,6,1504,reported_aggregate,"Final_Revised_after_review_2026-10-17.docx, Table 1; Supplementary_Appendices_after_review_2026-10-17.pdf, pp. 11 and 13"

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "base_commit": "c9b5cba76e62382bf4661a0f494b934431be7b71",
+  "manuscript": {
+    "file": "Final_Revised_after_review_2026-10-17.docx",
+    "sha256": "340a53f066e38ea5699682ffc2eaed2840569582b8e43c9e081e50792a4e9653",
+    "table1_rows": 18,
+    "table3_rows": 14,
+    "table5_rows": 10,
+    "table2_comparisons": 9,
+    "table4_comparisons": 13
+  },
+  "appendices": {
+    "file": "Supplementary_Appendices_after_review_2026-10-17.pdf",
+    "sha256": "feec2957fb12c187e6841cb370877cfa00dbf16cd0e39cd0d13c12e67bdeb25f",
+    "pages": 47,
+    "historical_sr1_pages": [
+      11,
+      13
+    ],
+    "additional_sr1_pages": [
+      14,
+      15
+    ]
+  },
+  "record_decision_sha256": {
+    "results/sr1_decisions.csv": "cefd4abba44ecea48bed914125af850a6bf365e824deabc882ae9f1f8e6a5bb3",
+    "results/sr2_decisions.csv": "1a0d65bfdb68badee6d9f6ea83a8554df07472baf637f410e35198d4b72aeba7",
+    "results/sr3_decisions.csv": "661eb4ef2ffb95f40de2ea727b05abde1ae0447f36bd2610c57c688656aa60ab"
+  },
+  "aggregate_input_sha256": {
+    "results/reference/sr1_historical_reported.csv": "092e5a3f180f0c4e95966a942c41ca99233c8b3cbc152f16c826a8114f920309",
+    "results/reference/table2_reported_paired_agreement.csv": "fd721d5ec88f0b1fec0df61dce462b7d44d8030d4fc5ea70250d87265bf34176"
+  },
+  "historical_support": "The eight historical SR1 rows are preserved as reported aggregate matrices. Recalculating their statistics does not verify the corresponding individual decisions or the historical cascade linkage.",
+  "archive_checks": [
+    {
+      "file": "SR1_source_data_1556_v4.xlsx",
+      "sha256": "83f8300a8953cfd57dc702050ea98c87fad4d0f24811ebe3b984c19bd8394435",
+      "finding": "The archived abstract ChatGPT column gives 86/102/0/308, whereas manuscript Table 1 reports 85/103/1/307. No individual decision was changed to force a match."
+    },
+    {
+      "file": "SR1_correct_data.xlsx",
+      "sha256": "02e83e3652e6c8b80028ebc69b57fb5ed230fa94c34ceaa09a712cd6bb77cde9",
+      "finding": "Some archived SR1 matrices reproduce the historical reported counts, but the final-inclusion vector differs from the current record-level reference despite the same total of 28. The archives are not silently merged."
+    }
+  ],
+  "table2_note": "Human-model kappa for the saved record-level sets can be reproduced. Common observed-decision subset kappas require original observation masks, which these binary exports do not preserve. Aggregate confusion matrices cannot identify inter-model joint decisions.",
+  "missing_rule": "Records without a model inclusion decision are classified as excluded. Blank TF cells outside the human-selected cohort do not enter that cohort denominator.",
+  "figure2": {
+    "historical_cascade_after_abstract": 381,
+    "one_shot_pdfs_supplied": 1481,
+    "source": "Figure 2 in Final_Revised_after_review_2026-10-17.docx",
+    "support": "Historical stage totals are reported aggregates; the one-shot final matrix is record-derived."
+  },
+  "source_selection": "Analysis sets follow their labels in manuscript Tables 1, 3 and 5. Runs and record decisions are not selected or altered according to effect direction."
+}
