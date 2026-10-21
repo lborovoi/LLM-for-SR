@@ -1,5 +1,11 @@
 # LLM screening across three systematic reviews
 
+## Current correction on 21 October 2026
+
+The [reference reconciliation](REFERENCE_RECONCILIATION_2026-10-21.md) supersedes the historical documentation below. Table 1 now uses observed SR1 decision exports. Table 5 uses the identical 28 published final inclusions at every stage; early-stage metrics consequently differ from human intermediate-stage agreement. No individual decisions were changed. Historical aggregate metrics and the previous Table 5 are retained in `results/reference_audit_2026-10-21/`.
+
+## Previous documentation retained for provenance
+
 This repository contains screening code, saved human/model decisions, and results for the manuscript *Validity and consistency of different LLMs in conducting public health systematic reviews: a cautious call for hybrid approaches*.
 
 ## Results and manuscript tables

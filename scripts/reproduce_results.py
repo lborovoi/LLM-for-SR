@@ -265,12 +265,23 @@ def agreement_results(root):
 def build_outputs(root=ROOT):
     record = record_results(root)
     historical = historical_results(root)
-    table1 = historical + [dict(r) for r in record if
-                          (r["review"] == "SR1" and r["workflow"] == "one-shot") or
+    table1 = [dict(r) for r in record if
+                          r["review"] == "SR1" or
                           r["review"] == "SR2" or
                           (r["review"] == "SR3" and r["model"].endswith(" old"))]
     table3 = [dict(r) for r in record if r["review"] == "SR3" and " new " in r["model"]]
-    table5 = [dict(r) for r in record if r["review"] == "SR1"]
+    # Same final-study reference at every SR1 stage. Cohort gates stay stage-specific.
+    sr1_rows = read_csv(root/"results/sr1_decisions.csv")
+    final_gold = GOLDS["SR1"][-1]
+    table5 = []
+    for r in record:
+        if r["review"] != "SR1":
+            continue
+        row = dict(r)
+        row.update(statistics(matrix(sr1_rows, r["decision_column"], final_gold, r["gate_column"])))
+        row["human_reference"] = "Human – published final inclusion (28), all stages"
+        row["reference_column"] = final_gold
+        table5.append(row)
     for number, rows in [(1, table1), (3, table3), (5, table5)]:
         for i, row in enumerate(rows, 1):
             row["analysis_id"] = f"table{number}_{i:02d}"
@@ -283,6 +294,7 @@ def build_outputs(root=ROOT):
                             "Gemini new (3.8 Flash)": "Gemini 3.8 Flash",
                             "Gemini new (3-flash-preview)": "gemini-3-flash-preview"}.get(row["model"], row["model"])
     outputs = {
+        "results/reference_audit_2026-10-21/historical_aggregate_metrics.csv": csv_bytes(historical),
         "results/record_level_summary.csv": csv_bytes(record, BASE_FIELDS + ["F1", "cohen_kappa"]),
         "results/manuscript/table1_validity.csv": csv_bytes(table1),
         "results/manuscript/table3_modern_sr3.csv": csv_bytes(table3),
@@ -292,26 +304,12 @@ def build_outputs(root=ROOT):
     table2, table4 = agreement_results(root), hybrid_results(root)
     outputs["results/manuscript/table2_agreement.csv"] = csv_bytes(table2, list(table2[0]))
     outputs["results/manuscript/table4_hybrid_rules.csv"] = csv_bytes(table4, list(table4[0]))
-    sources = json.loads((root/"provenance/analysis_sources.json").read_text())
-    by_key = {(r["model"], r["workflow"]): r for r in historical}
-    initial = by_key["ChatGPT", "initial screening (TF)"]
-    abstract = by_key["ChatGPT", "abstract (TF)"]
-    full = by_key["ChatGPT", "TF full text"]
-    ntf = by_key["ChatGPT", "nTF final"]
-    one = next(r for r in table1 if r["review"] == "SR1" and r["model"] == "ChatGPT" and r["workflow"] == "one-shot")
-    flow = []
-    for panel, stage, input_n, evaluation_n, retained, support, source in [
-        ("TF", "initial screening", initial["records_evaluated"], initial["records_evaluated"], initial["TP"]+initial["FP"], "reported_aggregate", "Table 1, SR1 initial screen"),
-        ("TF", "abstract", abstract["records_evaluated"], abstract["records_evaluated"], abstract["TP"]+abstract["FP"], "reported_aggregate", "Table 1, SR1 abstract"),
-        ("TF", "full text", full["records_evaluated"], full["records_evaluated"], full["TP"]+full["FP"], "reported_aggregate", "Table 1, SR1 full text"),
-        ("nTF", "initial screening", initial["records_evaluated"], "", initial["TP"]+initial["FP"], "reported_aggregate", "Figure 2 historical cascade"),
-        ("nTF", "abstract", initial["TP"]+initial["FP"], "", sources["figure2"]["historical_cascade_after_abstract"], "reported_aggregate", "Figure 2 historical cascade"),
-        ("nTF", "full text", sources["figure2"]["historical_cascade_after_abstract"], ntf["records_evaluated"], ntf["TP"]+ntf["FP"], "reported_aggregate", "Table 1 and Figure 2 historical cascade"),
-        ("one-shot", "full text", sources["figure2"]["one_shot_pdfs_supplied"], one["records_evaluated"], one["TP"]+one["FP"], "record_level_result", "SR1 one-shot decisions; PDF supply count from Figure 2"),
-    ]:
-        flow.append(dict(review="SR1", model="ChatGPT", panel=panel, stage=stage, input_records=input_n,
-                         evaluation_records=evaluation_n, model_inclusions=retained, data_support=support, source=source))
-    outputs["results/manuscript/figure2_counts.csv"] = csv_bytes(flow, list(flow[0]))
+    sr1 = [r for r in table1 if r["review"] == "SR1" and r["model"] == "ChatGPT"]
+    flow=[]
+    for workflow,panel,stage in [("title (TF)","TF","title"),("title/abstract (TF)","TF","abstract"),("TF full text","TF","full text"),("nTF final","nTF","archived final membership"),("one-shot","one-shot","full text")]:
+        row=next(r for r in sr1 if r["workflow"]==workflow)
+        flow.append(dict(review="SR1",model="ChatGPT",panel=panel,stage=stage,input_records=row["records_evaluated"],evaluation_records=row["records_evaluated"],model_inclusions=row["TP"]+row["FP"],data_support="record_level",source=row["input_source"]))
+    outputs["results/manuscript/figure2_counts.csv"]=csv_bytes(flow,list(flow[0]))
     return outputs
 
 

@@ -9,6 +9,15 @@ spec.loader.exec_module(module)
 
 
 class ReproductionTests(unittest.TestCase):
+    def test_published_28_identical_at_each_table5_stage(self):
+        manifest = module.read_csv(ROOT/"results/reference_audit_2026-10-21/published_28_reference.csv")
+        rows = module.read_csv(ROOT/"results/sr1_decisions.csv")
+        self.assertEqual(len(manifest), 28)
+        self.assertEqual({r["record_no"] for r in manifest},
+                         {r["no"] for r in rows if r["Human – final inclusion (28)"] == "1"})
+        table5 = module.read_csv(ROOT/"results/manuscript/table5_additional_sr1.csv")
+        self.assertTrue(all(int(r["TP"])+int(r["FN"]) == 28 for r in table5))
+
     def test_missing_is_exclude_within_target_not_outside_gate(self):
         rows = [{"gate": "1", "gold": "1", "decision": "1"},
                 {"gate": "1", "gold": "0", "decision": ""},
